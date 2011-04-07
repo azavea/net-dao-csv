@@ -20,9 +20,9 @@
 		<id name="ID" column="ID">
 		</id>
 		<property name="BoolVal" column="BoolCol" type="integer"/>
-		<property name="IntVal" column="IntCol"/>
+		<property name="IntVal" column="IntCol" type="integer"/>
 		<property name="DateVal" column="DateCol" type="date"/>
-		<property name="FloatVal" column="FloatCol"/>
+		<property name="FloatVal" column="FloatCol" type="float"/>
 	</class>
 	<class name="Azavea.Open.DAO.Tests.EasyCompositeKeyClass,Azavea.Open.DAO" table="DoesntMatter">
 		<id name="ID1" column="IDCol1"/>

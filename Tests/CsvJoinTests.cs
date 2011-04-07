@@ -37,7 +37,7 @@ namespace Azavea.Open.DAO.CSV.Tests
             : base(
                 new FastDAO<JoinClass1>(new Config("..\\..\\Tests\\CsvDao.config", "CsvDaoConfig"), "DAO"),
                 new FastDAO<JoinClass2>(new Config("..\\..\\Tests\\CsvDao.config", "CsvDaoConfig"), "DAO"),
-                false, true, true, true) { }
+                false, true, true, true, true) { }
 
         /// <exclude/>
         [TestFixtureSetUp]
