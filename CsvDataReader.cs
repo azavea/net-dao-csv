@@ -52,8 +52,20 @@ namespace Azavea.Open.DAO.CSV
             : base(layer, mapping, criteria, GetConfig(layer, mapping))
         {
             _reader = ((CsvDataReaderConfig) _config).Reader;
-
-            PreProcessSorts();
+            try
+            {
+                PreProcessSorts();
+            }
+            catch (Exception e)
+            {
+                // Close the reader on error, since if the constructor throws
+                // it isn't very reasonable to expect anyone else to call Close.
+                if (_reader != null)
+                {
+                    layer.DoneWithReader(_reader);
+                }
+                throw new LoggingException("Unable to read from CSV file and process sorts.", e);
+            }
         }
 
         private static DataReaderConfig GetConfig(CsvDaLayer layer, ClassMapping mapping)
