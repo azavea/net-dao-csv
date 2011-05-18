@@ -115,7 +115,7 @@ namespace Azavea.Open.DAO.CSV
         public CsvDescriptor(Config config, string component,
             ConnectionInfoDecryptionDelegate decryptionDelegate)
             : this(CsvConnectionType.Unknown,
-                   config.GetParameter(component, "Path"),
+                   config.GetParameterWithSubstitution(component, "Path", true),
                    null, null,
                    config.ParameterExists(component, "OutputQuoteLevel")
                        ? (CsvQuoteLevel) Enum.Parse(typeof (CsvQuoteLevel),config.GetParameter(component, "OutputQuoteLevel"))
