@@ -35,7 +35,7 @@ namespace Azavea.Open.DAO.CSV.Tests
         /// <exclude/>
         public CsvDaoTests()
             : base(new Config("..\\..\\Tests\\CsvDao.config", "CsvDaoConfig"), "DAO",
-            false, false, false, false, false) { }
+            false, false, false, false, false, false) { }
 
         /// <exclude/>
         [TestFixtureSetUp]
