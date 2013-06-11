@@ -40,7 +40,7 @@ namespace Azavea.Open.DAO.CSV.Tests
                 false, true, true, true, true) { }
 
         /// <exclude/>
-        [TestFixtureSetUp]
+        [SetUp]
         public void Init()
         {
             // Reset the unit test data by copying the templates, since we don't know what any
