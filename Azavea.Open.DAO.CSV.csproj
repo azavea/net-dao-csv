@@ -16,6 +16,8 @@
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">.\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,22 +38,29 @@
     <DocumentationFile>bin\Release\Azavea.Open.DAO.CSV.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Azavea.Open.Common\lib\log4net\log4net.dll</HintPath>
+    <Reference Include="Azavea.Open.Common">
+      <HintPath>packages\Azavea.Open.Common.2.1.8\lib\net20\Azavea.Open.Common.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="nunit.framework, Version=2.5.9.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Azavea.Open.Common\lib\nunit\nunit.framework.dll</HintPath>
+    <Reference Include="Azavea.Open.DAO">
+      <HintPath>packages\Azavea.Open.DAO.1.1.1\lib\net20\Azavea.Open.DAO.dll</HintPath>
+    </Reference>
+    <Reference Include="GeoAPI">
+      <HintPath>packages\GeoAPI.1.7.1.1\lib\net20\GeoAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Azavea.Open.DAO\ProductAssemblyInfo.cs">
-      <Link>ProductAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="CsvConnectionType.cs" />
     <Compile Include="CsvDataReader.cs" />
     <Compile Include="CsvDescriptor.cs" />
@@ -63,16 +72,6 @@
     <Compile Include="Tests\MiscCsvTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Azavea.Open.Common\Azavea.Open.Common.csproj">
-      <Project>{ADBFE412-4F06-454A-AAF5-E93719E3B1FD}</Project>
-      <Name>Azavea.Open.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Azavea.Open.DAO\Azavea.Open.DAO.csproj">
-      <Project>{A510DDB6-F817-4610-B08C-305EB937CE4F}</Project>
-      <Name>Azavea.Open.DAO</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Azavea.Open.DAO.CSV.LICENSE.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -81,9 +80,11 @@
     <Content Include="Tests\Mapping.xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Tests\CsvDao.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
