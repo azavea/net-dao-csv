@@ -38,23 +38,25 @@
     <DocumentationFile>bin\Release\Azavea.Open.DAO.CSV.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Azavea.Open.Common">
-      <HintPath>packages\Azavea.Open.Common.2.1.8\lib\net20\Azavea.Open.Common.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Azavea.Open.Common, Version=2.1.9.16050, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Azavea.Open.Common.2.1.9\lib\net20\Azavea.Open.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Azavea.Open.DAO">
-      <HintPath>packages\Azavea.Open.DAO.1.1.1\lib\net20\Azavea.Open.DAO.dll</HintPath>
+    <Reference Include="Azavea.Open.DAO, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Azavea.Open.DAO.1.1.6\lib\net20\Azavea.Open.DAO.dll</HintPath>
     </Reference>
-    <Reference Include="GeoAPI">
+    <Reference Include="GeoAPI, Version=1.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\GeoAPI.1.7.1.1\lib\net20\GeoAPI.dll</HintPath>
     </Reference>
-    <Reference Include="log4net">
-      <HintPath>packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\log4net.2.0.0\lib\net20-full\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
+    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -72,6 +74,7 @@
     <Compile Include="Tests\MiscCsvTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".nuget\NuGet.exe" />
     <Content Include="Azavea.Open.DAO.CSV.LICENSE.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -80,6 +83,9 @@
     <Content Include="Tests\Mapping.xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".nuget\NuGet.Config" />
+    <None Include=".nuget\NuGet.targets" />
+    <None Include="Azavea.Open.DAO.CSV.nuspec" />
     <None Include="packages.config" />
     <None Include="Tests\CsvDao.config" />
   </ItemGroup>
